@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "invoice-ocr-cli"
+version = "0.1.0"
+description = "Extract invoice records from images using local OCR, validate them and store them in SQLite."
+requires-python = ">=3.10"
+dependencies = ["pytesseract>=0.3.10", "Pillow>=10.0"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[project.scripts]
+invoice-ocr = "invoice_ocr.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
